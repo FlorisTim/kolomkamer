@@ -11,6 +11,13 @@
     }
 }
 
+.editorUI details{
+    background: #eee;
+    padding: 5px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
 .editorUI{
     background-color: white;
     position: fixed;
@@ -20,6 +27,7 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 1px;
 }
 
 summary:hover{
@@ -27,13 +35,27 @@ summary:hover{
     cursor: pointer;
 }
 
-#sidebar{
-    padding: 1px;
-}
 
 #objecteditor{
     margin-left: 240px;
 }
+
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right{
+    text-align: right;
+}
+
 
 .object{
     background-color: #ddd;
@@ -49,6 +71,18 @@ summary:hover{
     gap: 5px;
 }
 
+.cobject{
+    background-color: #ddd;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+}
+
+.cobject:hover{
+    background-color: #ccc;
+    cursor: grab;
+}
+
 .object:hover{
     background-color: #ccc;
     cursor: grab;
@@ -59,8 +93,8 @@ summary:hover{
     background-color: #fff;
 }
 
-.center{
-    text-align: center;
+.bottom{
+    position: absolute;
 }
 
 .fixedheight, .fixedheight2{
@@ -102,4 +136,14 @@ summary:hover{
 .editclick:hover{
     cursor: pointer;
     color: #4646ff;
+}
+
+.red{
+    font-weight: bolder;
+    color: #ff0909;
+}
+
+
+.red:hover{
+    color: #ff9393;
 }

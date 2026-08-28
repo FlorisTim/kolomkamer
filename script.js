@@ -1,8 +1,8 @@
 const NETA = true;
-const THTA = true;
+const THTA = false;
 
 function openLink(link){
-    openLink(link, new_tab);
+    openLink(link, NETA);
 }
 
 function openLink(link, newtab){

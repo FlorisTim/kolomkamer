@@ -10,11 +10,11 @@ async function main(){
     DOCUMENTHEAD = await document.getElementsByTagName("head")[0];
     DOCUMENTBODY = await document.getElementById("main");
 
-    createDoc(true);
+    createDoc(true,true);
 }
 
-async function createDoc(head){
-    DOCUMENTBODY.innerHTML = await generateBody(createdBody, true);
+async function createDoc(head, editor){
+    DOCUMENTBODY.innerHTML = await generateBody(createdBody, editor);
     if (head) {
         DOCUMENTHEAD.innerHTML += await generateHeader(createdBody);
     }
@@ -90,8 +90,9 @@ async function generateBody(text, editing){
                 pad = true;
                 break;
             case "{":
-                output += dragndropattr.replace("#N",element)
-                output += `<div ${editing ? `onClick="edit(${element}); event.stopPropagation();" style="z-index=${-element}"` : ""} id="element_${element++}" class="all `
+                if (editing){
+                output += dragndropattr.replace("#N",element)}
+                output += `<div ${editing ? `onClick="edit(${element}); event.stopPropagation();"` : ""} id="element_${element++}" class="all `
                 pad = true;
                 break;
             case "|":

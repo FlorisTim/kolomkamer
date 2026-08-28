@@ -54,14 +54,18 @@
     </details>
 </div>
 <div id="objecteditor" style="visibility: hidden;" class="editorUI">
-    <div class="stick"><span onclick="deselect();" class="editclick">[X]</span> Element</div>
+    <div class="stick"><span onclick="deselect();" class="editclick">[X]</span> Element attributes</div>
     <br>
-    <div class="center">Contents</div>
+    <div class="editAsText">
+        <details><summary>Contents</summary>
     <div class="textedit fixedheight" id="contents" contenteditable>
-
     </div>
-    <div class="r">
+    </details>
     </div>
+    <span class="editclick red cobject" onclick="deleteSelectedElement()">Delete element</span>
+    <span class="cobject" id="cloner" draggable="true" ondragstart="dragstartHandler(event)"><span class="otitl">⠿ Clone</span>
+        <div class="" id="CLONED_OBJECT" style="visibility: hidden; height: 0; position: fixed"></div>
+    </span>
 </div>
 </body>
 </html>

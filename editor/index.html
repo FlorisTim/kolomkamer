@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+    <script src="/parser.js"></script>
+    <script src="/script.js"></script>
+    <script src="editor.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+<div id="main" class="all">
+
+</div>
+<div id="sidebar" class="editorUI">
+    <div class="stick">Objects</div><br>
+    <details><summary>text objects</summary>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Title</span>
+        <div class="t" id="TITLE_OBJECT">[|This is a title]</div>
+    </div>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Entry</span>
+        <div class="e" id="ENTRY_OBJECT">[|Lorem ipsum dingus bingus boingo flong]</div>
+    </div>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Fixed-Size Entry</span>
+        <div class="e d" id="BIG_ENTRY_OBJECT">[|Lorem ipsum dingus bingus boingo flong]</div>
+    </div>
+    </details>
+    <details ><summary>layout objects</summary>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Spacer</span>
+        <div class="d p" id="SPACER_OBJECT"></div>
+    </div>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Horizontal Array</span>
+        <div class="e r" id="ROW_OBJECT" style="visibility: hidden; height: 0; position: fixed">{q|}</div>
+        <div class="e r"><div class="e p">Example text 1</div><div class="e p">Example text 2</div></div>
+    </div>
+    <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+        <span class="otitl">Vertical Array</span>
+        <div class="e c" id="COLUMN_OBJECT" style="visibility: hidden; height: 0; position: fixed">{q|}</div>
+        <div class="e c"><div class="e d">Example text 1</div><div class="e d">Example text 2</div></div>
+    </div>
+    </details>
+    <details ><summary>presets</summary>
+        <div class="object" draggable="true" ondragstart="dragstartHandler(event)">
+            <span class="otitl">Title & Card</span>
+            <div class="e c" id="TITLE_CARD_OBJECT" style="visibility: hidden; height: 0; position: fixed">{t|[|Title]}{ed|[|Hello world]}</div>
+            <div class="e c"><div class="t">Title</div><div class="e p">Example text</div></div>
+        </div>
+    </details>
+</div>
+<div id="objecteditor" style="visibility: hidden;" class="editorUI">
+    <div class="stick"><span onclick="deselect();" class="editclick">[X]</span> Element</div>
+    <br>
+    <div class="center">Contents</div>
+    <div class="textedit fixedheight" id="contents" contenteditable>
+
+    </div>
+    <div class="r">
+    </div>
+</div>
+</body>
+</html>

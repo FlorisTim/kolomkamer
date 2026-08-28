@@ -1,0 +1,105 @@
+.selected{
+    border: 1px solid #fbfbfb;
+}
+
+#main{
+    margin: auto;
+}
+@media screen and (max-width: 1900px){
+    #main{
+        margin-right: 10px;
+    }
+}
+
+.editorUI{
+    background-color: white;
+    position: fixed;
+    height: 600px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+summary:hover{
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#sidebar{
+    padding: 1px;
+}
+
+#objecteditor{
+    margin-left: 240px;
+}
+
+.object{
+    background-color: #ddd;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    min-height: 130px;
+    max-height: 130px;
+    text-align: center;
+    gap: 5px;
+}
+
+.object:hover{
+    background-color: #ccc;
+    cursor: grab;
+}
+
+.stick{
+    position: fixed;
+    background-color: #fff;
+}
+
+.center{
+    text-align: center;
+}
+
+.fixedheight, .fixedheight2{
+    background-color: #bbb;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.fixedheight2{
+    height: 1lh;
+}
+.fixedheight{
+    height: 100px;
+}
+
+.textedit{
+    padding: 5px;
+}
+
+.object .otitl{
+    font-size: 18px;
+}
+
+.inbetween{
+    background-color: rgba(255, 255, 255, 0.07);
+    min-width: 10px;
+    min-height: 10px;
+    text-align: center;
+    color: white;
+    font-size: 8px;
+}
+
+.editclick{
+    text-decoration: underline;
+    color: blue;
+}
+
+.editclick:hover{
+    cursor: pointer;
+    color: #4646ff;
+}

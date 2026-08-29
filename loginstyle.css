@@ -1,0 +1,72 @@
+body{
+    zoom: 1.5;
+    background-image: url('background.jpg');
+}
+
+input, button{
+    background-color: #000320;
+    border: none;
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input:focus{
+    background-color: #000553;
+    border: none;
+}
+
+button, .center{
+    box-shadow: 2px 2px 2px #000000;
+}
+
+a{
+    color: #7caeff;
+}
+a:hover{
+    color: #bddcef;
+}
+
+.title{
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+button:hover{
+    background-color: #000553;
+    cursor: pointer;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    min-height: 100%;
+    background-color: #000540;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.centertext{
+    text-align: center;
+
+}
+
+.gray{
+    background-color: #0042d5;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+*{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

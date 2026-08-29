@@ -11,6 +11,8 @@
     }
 }
 
+
+
 .editorUI details{
     background: #eee;
     padding: 5px;
@@ -147,3 +149,4 @@ summary:hover{
 .red:hover{
     color: #ff9393;
 }
+

@@ -42,7 +42,6 @@ body{
     flex-direction: column;
     min-height: 100px;
     overflow-x: hidden;
-    justify-content: center;
 }
 
 .all:not(.q){

@@ -11,14 +11,98 @@ def writeToLog(text):
 	fil.write(msg  + "\n")
 	fil.close()
 
+def getFilesOfUser(person):
+	if "\n" in person or " " in person:
+		return "illegal person"
+
+	with open("USER FILE PATH", "r") as fil:
+		file = json.loads(fil)
+		if person in file:
+			return file[person]
+		else:
+			return "file does not exist"
+
+
+def getUsersOfFile(filename):
+	if "\n" in filename or " " in filename:
+		return "illegal filename"
+
+	with open("FILE USER PATH", "r") as fil:
+		file = json.loads(fil)
+		if filename in file:
+			return file[filename]
+		else:
+			return "file does not exist"
+
+
+def takeFileFrom(filename, person):
+	if "\n" in filename or " " in filename or "\n" in person or " " in person:
+		return "illegal filename or person"
+
+	#remove user to file
+	with open("FILE USER PATH", "r+") as fil:
+		file = json.loads(fil.read())
+		fil.seek(0,0)
+
+		if filename not in file:
+			file[filename] = []
+
+		if person in file[filename]:
+			file[filename].remove(person)
+
+		fil.write(json.dumps(file))
+		fil.truncate()
+
+	#add file to user
+	with open("USER FILE PATH", "r+") as fil:
+		file = json.loads(fil.read())
+		fil.seek(0,0)
+
+		if person not in file:
+			file[person] = []
+
+		if filename in file[person]:
+			file[person].remove(filename)
+
+		fil.write(json.dumps(file))
+		fil.truncate()
+
+
+
+	return "success"
+
 def giveFileTo(filename, person):
 	if "\n" in filename or " " in filename or "\n" in person or " " in person:
 		return "illegal filename or person"
-	file = open("/media/floris/New Volume/userdata/fileuser")
-	read = file.read()
-	file.close()
-	wrt = open("/media/floris/New Volume/userdata/fileuser", "w")
-	
+
+	#add user to file
+	with open("FILE USER PATH", "r+") as fil:
+		file = json.loads(fil.read())
+		fil.seek(0,0)
+
+		if filename not in file:
+			file[filename] = []
+
+		if person not in file[filename]:
+			file[filename].append(person)
+
+		fil.write(json.dumps(file))
+
+	#add file to user
+	with open("USER FILE PATH", "r+") as fil:
+		file = json.loads(fil.read())
+		fil.seek(0,0)
+
+		if person not in file:
+			file[person] = []
+
+		if filename not in file[person]:
+			file[person].append(filename)
+
+		fil.write(json.dumps(file))
+
+
+	return "success"
 
 PORT = 10620
 HOST = "0.0.0.0"
@@ -39,14 +123,15 @@ while True:
 	http_method = fh_components[0]
 	path = fh_components[1]
 	personIp = request.split("X-Forwarded-For: ")[1].split('\n')[0]
-	
+	chosenPath = "/media/floris/New Volume/content"+path
+
 	content = ""
 	try:
-		fil = open("/media/floris/New Volume/content"+path)
+		fil = open(chosenPath, "r")
 		content = fil.read()
 		if content.startswith("not_allowed"):
 			writeToLog("tried to access illegal file \"" + path + "\": " + personIp)
-			content = "illegal location"
+			content = "no access"
 		else:
 			writeToLog("tried to access file \"" + path + "\": " + personIp)
 		fil.close()
@@ -54,6 +139,9 @@ while True:
 		content = "could not open file"
 		writeToLog("tried to access non existent file \"" + path + "\": " + personIp)
 
+	if "../" in chosenPath:
+		content = "illegal path"
+		writeToLog("naughty person used ../ in \"" + path + "\": " + personIp)
 
 	response = (
 			f"HTTP/1.1 200 OK\r\n"+

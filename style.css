@@ -18,6 +18,7 @@ body{
 
     padding: 10px;
     gap: 1px;
+    justify-content: center;
 }
 
 .a, .t, .e{
@@ -41,17 +42,15 @@ body{
     flex-direction: column;
     min-height: 100px;
     overflow-x: hidden;
+    justify-content: center;
 }
 
-.r .all:not(.q, .inbetween){
-    width: 100%;
-}
-
-.c .all:not(.q, .inbetween){
+.all:not(.q){
     width: 100%;
 }
 
 .a{
+
 }
 
 .p{

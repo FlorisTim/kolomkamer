@@ -64,9 +64,9 @@ function deleteElement(id) {
                 createdBody =
                     createdBody.substring(0, i) +
                     createdBody.substring(i + element.length);
-
-                return;
                 deselect()
+                return;
+
             }
         }
     }
@@ -150,14 +150,32 @@ const editchild = 2;
 
 function deselect(){
     const editor = document.getElementById("objecteditor");
-    const texteditor = editor.children[editchild]
     editor.style.visibility = "hidden";
-    texteditor.style.visibility = "hidden";
-    texteditor.style.position = "absolute";
+
     const s = document.getElementsByClassName('selected')
     for (let e of s) {
         e.classList.remove('selected');
     }
+    hideContentEdit()
+}
+
+function tryContentEditor(id){
+    const editor = document.getElementById("objecteditor");
+    const sel = document.getElementById("element_"+id);
+    const texteditor = editor.children[editchild]
+    texteditor.style.visibility = "visible";
+    texteditor.style.position = "relative";
+    if (sel.innerHTML.includes("ondragover=\"dragoverHandler(event)\">+</span>")){
+        texteditor.style.visibility = "hidden";
+        texteditor.style.position = "absolute";
+    }
+}
+
+function hideContentEdit(){
+    const editor = document.getElementById("objecteditor");
+    const texteditor = editor.children[editchild]
+    texteditor.style.visibility = "hidden";
+    texteditor.style.position = "absolute";
 }
 
 function edit(id){
@@ -165,17 +183,12 @@ function edit(id){
     const editor = document.getElementById("objecteditor");
     const sel = document.getElementById("element_"+id);
     sel.classList.add('selected');
-    const texteditor = editor.children[editchild]
+
     document.getElementById("CLONED_OBJECT").innerHTML = `${getElement(id+1,false)}`;
     document.getElementById("CLONED_OBJECT").className = sel.className.replaceAll("all","").replaceAll("selected","");
     document.getElementById("contents").innerHTML = sel.innerHTML;
     document.getElementById("contents").parentElement.open = true;
-    texteditor.style.visibility = "visible";
-    texteditor.style.position = "relative";
-    if (sel.innerHTML.includes("ondragover=\"dragoverHandler(event)\">+</span>")){
-        texteditor.style.visibility = "hidden";
-        texteditor.style.position = "absolute";
-    }
+    tryContentEditor(id);
     // while (sel.innerHTML.includes("<span>")) {
     //
     // }

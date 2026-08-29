@@ -32,8 +32,6 @@ Ubuntu:;
 
 ~
 
-{at|[|Title]}
-{ae|[|entry][b!openLink('https://youtube.com',NETA)|link to youtube]}
 {q|}
 
 

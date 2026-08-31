@@ -1,10 +1,11 @@
 body{
     zoom: 1.5;
-    background-image: url('background.jpg');
 }
 
+
+
 input, button{
-    background-color: #000320;
+    background-color: rgba(0, 0, 0, 0.76);
     border: none;
     color: white;
     width: 80%;
@@ -14,19 +15,26 @@ input, button{
 }
 
 input:focus{
-    background-color: #000553;
+    background-color: #ffffff;
     border: none;
+    color: black;
 }
 
-button, .center{
+button, .gray{
     box-shadow: 2px 2px 2px #000000;
 }
 
+#errortext{
+    color: red;
+    font-size: 8px;
+    text-align: center;
+}
+
 a{
-    color: #7caeff;
+    color: #cdcdcd;
 }
 a:hover{
-    color: #bddcef;
+    color: #ffffff;
 }
 
 .title{
@@ -36,18 +44,23 @@ a:hover{
 }
 
 button:hover{
-    background-color: #000553;
+    background-color: #ffffff;
     cursor: pointer;
+    color: black;
 }
 
 .center{
     margin: auto;
     width: 50%;
     min-height: 100%;
-    background-color: #000540;
     color: #ffffff;
     padding: 20px;
     border-radius: 5px;
+}
+
+.blur{
+    background-color: rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(5px);
 }
 
 .centertext{
@@ -56,7 +69,7 @@ button:hover{
 }
 
 .gray{
-    background-color: #0042d5;
+    background-color: rgba(120, 120, 120, 0.35);
 }
 
 .column{

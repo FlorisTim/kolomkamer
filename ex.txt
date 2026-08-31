@@ -32,7 +32,12 @@ Ubuntu:;
 
 ~
 
+{t|
+    [!openLink('https://isomeone.nl')|hello world]
+}
 {q|}
+
+
 
 
 

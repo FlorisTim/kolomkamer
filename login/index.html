@@ -7,25 +7,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="login.js"></script>
 </head>
 <body>
 
-<div class="center">
+<div class="center blur">
     <div class="centertext title">KOLOM KAMER LOGIN</div><br>
     <div class="center gray column">
     <span class="centertext">Enter your username and password, and press the login button</span>
-        <input type="text" placeholder="Username"></input>
-        <input type="password" placeholder="Password"></input>
+        <input type="text" placeholder="Username" id="username"></input>
+        <input type="password" placeholder="Password" id="password"></input>
+        <span id="errortext"></span>
         <button class="loginbutton" onclick="login()">Login</button><br>
-        <span><a href="/signup">Register</a><br>
-        <a href="/signup">Forgot password</a></span>
+        <span><a href="../signup">Register</a><br>
+        <a href="../forgotpassword">Forgot password</a></span>
+        <span><a href="../privacy">privacy policy</a></span>
 </div>
 </div>
-<style>
-    body {
-        background-image: url('background.jpg');
-    }
-</style>
 </body>
+<style>
+    body{
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+        background-size:100vw 100vh;
+}
 
+</style>
 </html>

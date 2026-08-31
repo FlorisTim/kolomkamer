@@ -133,7 +133,7 @@ function inject(node,index){
 //[] span
 //{} div
 //[classes | content]
-//[classes !js | content]
+//[classes !onclick behaviour | content]
 
 function htmlToCompact(html) {
     let output = "";

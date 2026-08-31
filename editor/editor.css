@@ -91,6 +91,7 @@ summary:hover{
 }
 
 .stick{
+
     position: fixed;
     background-color: #fff;
 }
@@ -115,6 +116,7 @@ summary:hover{
 
 .textedit{
     padding: 5px;
+    overflow-y: auto;
 }
 
 .object .otitl{

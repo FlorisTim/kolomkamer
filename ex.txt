@@ -35,6 +35,14 @@ Ubuntu:;
 {t|
     [!openLink('https://isomeone.nl')|hello world]
 }
+{r|
+    {t|
+        [!openLink('https://isomeone.nl')|hello world]
+    }
+    {t|
+        [!openLink('https://isomeone.nl')|hello world]
+    }
+}
 {q|}
 
 

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="/api.js"></script>
 </head>
 <body>
 
@@ -14,10 +15,10 @@
     <div class="centertext title">KOLOM KAMER REGISTER</div><br>
     <div class="center gray column">
         <span class="centertext">Enter your username and password (Email recommended for account recovery), and press the sign up button</span>
-        <input type="text" placeholder="Username"></input>
-        <input type="text" placeholder="E-Mail (Optional)"></input>
-        <input type="password" placeholder="Password"></input>
-        <button class="loginbutton" onclick="login()">Sign up</button><br>
+        <input type="text" placeholder="Username" id="username"></input>
+        <input type="password" placeholder="Password" id="password"></input>
+        <span id="errortext"></span>
+        <button class="loginbutton" onclick="signup()">Sign up</button><br>
         <span><a href="../login">Login</a></span>
         <span><a href="../privacy">privacy policy</a></span>
     </div>

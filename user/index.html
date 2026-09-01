@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/loginstyle.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="/api.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 
+<div class="center blur">
+    <div class="centertext title">DASHBOARD</div><br>
+    <div class="center gray column">
+        <input type="text" placeholder="Kolom name" id="kolom"></input>
+        <button class="centertext" onclick="createFile(document.getElementById('kolom').value))">CREATE KOLOM</button>
+    </div>
+</div>
 </body>
+<style>
+    body{
+        background-image: url(../images/background.png);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+    }
+
+</style>
 </html>

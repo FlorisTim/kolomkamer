@@ -38,7 +38,7 @@ async function login(){
                 errortext.innerText = "Username must be at least 3 characters"
                 break;
             case "invalid_account":
-                errortext.innerText = "Username or password not found"
+                errortext.innerText = "Username or password incorrect or not found"
         }
         document.getElementsByClassName("loginbutton")[0].innerHTML = "Login"
         return;
@@ -47,7 +47,7 @@ async function login(){
     if (data[0].trim() === "SUCCESS") {
         sessionStorage.setItem("username", username.value);
         sessionStorage.setItem("sessionToken", data[1].trim());
-        window.location.href = `/user?u=${encodeURIComponent(username.value)}&edit=1`;
+        window.location.href = `../user?u=${encodeURIComponent(username.value)}&edit=1`;
     }
 }
 
@@ -130,6 +130,7 @@ async function getOwnersOf(file){
 
 
 async function createFile(file){
+    document.getElementById("crclmn").innerText = "Working..."
     let a = await fetch("https://api.kolomkamer.nl", {
         method: "POST",
         body:
@@ -139,10 +140,14 @@ async function createFile(file){
             file,
     }).then((response) => response.text());
     let res = a.split("____")
+    sessionStorage.setItem("sessionToken", res[1].trim());
+
     if (res[0].trim() === "ERROR") {
+        document.getElementById("crclmn").innerText = "Create Column"
+        document.getElementById('errortext').innerText = "Column name already in use or illegal characters"
         return "file_already_exists"
     }
-    sessionStorage.setItem("sessionToken", res[1].trim());
+    window.location.reload();
 }
 
 async function giveFile(file, user){
@@ -183,7 +188,7 @@ async function updateFile(file, data){
     const currentData = data.trim();
 
     for (let i = 0; i < currentData.length; i+= 750) {
-        await dumbUpdate(file, currentData.substring(i, Math.min(i + 750, currentData.length, i)));
+        await dumbUpdate(file, currentData.substring(i, Math.min(i + 750, currentData.length)));
     }
 }
 

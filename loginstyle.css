@@ -20,6 +20,19 @@ input:focus{
     color: black;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+}
+
+.max{
+    width: 100%;
+}
+
 button, .gray{
     box-shadow: 2px 2px 2px #000000;
 }
@@ -56,6 +69,7 @@ button:hover{
     color: #ffffff;
     padding: 20px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .blur{

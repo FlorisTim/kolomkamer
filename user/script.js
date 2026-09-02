@@ -9,16 +9,15 @@ async function main(){
         p.innerHTML = ""
         for (let site of sites){
             p.innerHTML += `
-            <div class="row">
-                <div class="max">${site}</div>
-                <button class="max" onclick="window.location.href ='../viewer?p=${encodeURIComponent(site)}'">
-                    View
-                </button>
-                <button class="max" onclick="window.location.href ='../editor?p=${encodeURIComponent(site)}'">
-                    Edit
-                </button>
+            <button onclick="loadPrev('${site}')">${site}</button>
             </div>
 `;
         }
     }
+}
+
+function loadPrev(site){
+    const p = document.getElementById("thumbnail")
+
+    p.innerHTML = site
 }
